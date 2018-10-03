@@ -15,6 +15,11 @@ return array(
         'success' => 'Výrobce úspěšně vytvořen.'
     ),
 
+    'restore' => array(
+        'error'   => 'Výrobce nebyl obnoven, zkuste to znovu',
+        'success' => 'Výrobce úspěšně obnoven.'
+    ),
+
     'delete' => array(
         'confirm'   => 'Opravdu chcete smazat tohoto výrobce?',
         'error'   => 'Vyskytl se problém se smazáním výrobce. Zkuste to znovu.',

@@ -13,7 +13,7 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
 }
 
 
-($argv[1]) ? $branch = $argv[1] : $branch = 'master';
+((array_key_exists('1',$argv[1]))) ? $branch = $argv[1] : $branch = 'master';
 
 echo "Welcome to the Snipe-IT upgrader.\n\n";
 echo "Please note that this script will not download the latest Snipe-IT \n";
@@ -111,7 +111,7 @@ if (file_exists('composer.phar')) {
 } else {
     echo "-- We couldn't find a local composer.phar - trying globally.\n\n";
     $composer_dump = shell_exec('composer dump');
-    $composer = shell_exec('composer install --prefer-source');
+    $composer = shell_exec('composer install --no-dev --prefer-source');
 }
 
 echo $composer_dump."\n\n";

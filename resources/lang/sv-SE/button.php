@@ -12,4 +12,5 @@ return array(
     'submit'  	                => 'Skicka',
     'upload'                    => 'Ladda upp',
 	'select_file'				=> 'Välj fil...',
+    'select_files'				=> 'Välj filer...',
 );
