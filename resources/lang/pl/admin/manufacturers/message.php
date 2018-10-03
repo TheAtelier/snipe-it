@@ -15,6 +15,11 @@ return array(
         'success' => 'Producent zaktualizowany pomyślnie.'
     ),
 
+    'restore' => array(
+        'error'   => 'Producent nie został przywrócony, spróbuj ponownie.',
+        'success' => 'Producent przywrócony pomyślnie.'
+    ),
+
     'delete' => array(
         'confirm'   => 'Czy na pewno usunąć danego producenta?',
         'error'   => 'Podczas usuwania producenta wystąpił błąd. Spróbuj ponownie.',

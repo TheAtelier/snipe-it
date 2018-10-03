@@ -38,6 +38,7 @@ return array(
     'tag'				=> 'Asset Tag',
     'update'			=> 'Asset Update',
     'warranty'			=> 'Garanti',
+		'warranty_expires'		=> 'Garantin löper ut',
     'years'				=> 'år',
 )
 ;
