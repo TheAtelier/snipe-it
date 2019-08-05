@@ -163,14 +163,14 @@
 
                 @if ($user->ldap_import!='1')
                 <!-- Password Confirm -->
-                <div class="form-group {{ $errors->has('password_confirm') ? 'has-error' : '' }}">
-                  <label class="col-md-3 control-label" for="password_confirm">
+                <div class="form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
+                  <label class="col-md-3 control-label" for="password_confirmation">
                     {{ trans('admin/users/table.password_confirm') }}
                   </label>
                   <div class="col-md-5 {{  ((\App\Helpers\Helper::checkIfRequired($user, 'first_name')) && (!$user->id)) ? ' required' : '' }}">
                     <input
                     type="password"
-                    name="password_confirm"
+                    name="password_confirmation"
                     id="password_confirm"
                     class="form-control"
                     value=""
@@ -182,7 +182,7 @@
                     @if (config('app.lock_passwords') && ($user->id))
                     <p class="help-block">{{ trans('admin/users/table.lock_passwords') }}</p>
                     @endif
-                    {!! $errors->first('password_confirm', '<span class="alert-msg">:message</span>') !!}
+                    {!! $errors->first('password_confirmation', '<span class="alert-msg">:message</span>') !!}
                   </div>
                 </div>
                 @endif
@@ -273,6 +273,15 @@
                   </div>
                 </div>
 
+                  <!-- Website URL -->
+                  <div class="form-group {{ $errors->has('website') ? ' has-error' : '' }}">
+                      <label for="website" class="col-md-3 control-label">{{ trans('general.website') }}</label>
+                      <div class="col-md-8">
+                          <input class="form-control" type="text" name="website" id="website" value="{{ Input::old('website', $user->website) }}" />
+                          {!! $errors->first('website', '<span class="alert-msg"><i class="fa fa-times"></i> :message</span>') !!}
+                      </div>
+                  </div>
+
                   <!-- Address -->
                   <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
                       <label class="col-md-3 control-label" for="address">{{ trans('general.address') }}</label>
@@ -331,16 +340,19 @@
                               @if (config('app.lock_passwords'))
                                   <div class="icheckbox disabled" style="padding-left: 10px;">
                                       <input type="checkbox" value="1" name="activated" class="minimal disabled" {{ (old('activated', $user->activated)) == '1' ? ' checked="checked"' : '' }} disabled="disabled">
+                                      <!-- this is necessary because the field is disabled and will reset -->
+                                      <input type="hidden" name="activated" value="{{ $user->activated }}">
                                       {{ trans('admin/users/general.activated_help_text') }}
                                       <p class="help-block">{{ trans('general.feature_disabled') }}</p>
-                                      kjasdhv
+
                                   </div>
                               @elseif ($user->id === Auth::user()->id)
                                   <div class="icheckbox disabled" style="padding-left: 10px;">
-                                      <input type="checkbox" value="1" name="activated" class="minimal disabled" {{ (old('activated', $user->activated)) == '1' ? ' checked="checked"' : '' }} disabled="disabled">
+                                      <input type="checkbox" value="1" name="activated" class="minimal disabled"  checked="checked" disabled="disabled">
+                                      <!-- this is necessary because the field is disabled and will reset -->
+                                      <input type="hidden" name="activated" value="1">
                                       {{ trans('admin/users/general.activated_help_text') }}
                                       <p class="help-block">{{ trans('admin/users/general.activated_disabled_help_text') }}</p>
-
                                   </div>
                               @else
                                   <div style="padding-left: 10px;">

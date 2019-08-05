@@ -43,7 +43,7 @@ class SendExpirationAlerts extends Command
      *
      * @return mixed
      */
-    public function fire()
+    public function handle()
     {
 
         $settings = Setting::getSettings();
@@ -62,6 +62,7 @@ class SendExpirationAlerts extends Command
             if ($assets->count() > 0) {
                 $this->info(trans_choice('mail.assets_warrantee_alert', $assets->count(),
                     ['count' => $assets->count(), 'threshold' => $threshold]));
+                \Notification::send($recipients, new ExpiringAssetsNotification($assets, $threshold));
             }
 
             // Expiring licenses

@@ -286,17 +286,17 @@ return [
          * Package Service Providers...
          */
 
-        Barryvdh\Debugbar\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
         Fideloper\Proxy\TrustedProxyServiceProvider::class,
-        PragmaRX\Google2FA\Vendor\Laravel\ServiceProvider::class,
+        PragmaRX\Google2FALaravel\ServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         Unicodeveloper\DumbPassword\DumbPasswordServiceProvider::class,
         Schuppo\PasswordStrength\PasswordStrengthServiceProvider::class,
         Tightenco\Ziggy\ZiggyServiceProvider::class, // Laravel routes in vue
+        Eduardokum\LaravelMailAutoEmbed\ServiceProvider::class,
 
         /*
         * Application Service Providers...
