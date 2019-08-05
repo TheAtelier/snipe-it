@@ -35,7 +35,7 @@ class Consumable extends SnipeModel
         'qty'         => 'required|integer|min:0',
         'category_id' => 'required|integer',
         'company_id'  => 'integer|nullable',
-        'min_amt'     => 'integer|min:1|nullable',
+        'min_amt'     => 'integer|min:0|nullable',
         'purchase_cost'   => 'numeric|nullable',
     );
 
@@ -76,7 +76,7 @@ class Consumable extends SnipeModel
      * 
      * @var array
      */
-    protected $searchableAttributes = ['name', 'order_number', 'purchase_cost', 'purchase_date'];
+    protected $searchableAttributes = ['name', 'order_number', 'purchase_cost', 'purchase_date', 'item_no'];
 
     /**
      * The relations and their attributes that should be included when searching the model.
